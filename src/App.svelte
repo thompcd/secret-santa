@@ -19,9 +19,10 @@
 		{ id: 12, name: 'Hannah' },
 	];
 	
-	$: partners = [
-	
-];
+	$: partners = [];
+	$: listHeight = initialOrder.length * 52;
+	$: bgHeight = listHeight + 50;
+	$: console.log(listHeight)
 
 	//handle all of the app logic in the click function, like the animal I am
 	const handleClick = function(){
@@ -69,7 +70,7 @@ const [send, receive] = crossfade({
 	});
 </script>
 
-<div class="background">
+<div class="background" style="height:{bgHeight}">
 	<div class="board">
 		<div class="button-container">
 			<div class="button-wrapper">
@@ -80,7 +81,7 @@ const [send, receive] = crossfade({
 			</div>
 		</div>
 
-		<div class="left">
+		<div class="left" style="height:{listHeight}px">
 			<h2>
 				Participant
 			</h2>
@@ -90,7 +91,7 @@ const [send, receive] = crossfade({
 				</p>
 			{/each}
 		</div>
-		<div class="right">
+		<div class="right" style="height:{listHeight}px">
 			<h2>
 				Secret Santa
 			</h2>
@@ -111,7 +112,6 @@ const [send, receive] = crossfade({
 
 <style>
 	.background{
-		height: 100vh;
 		display: flex;
 		flex-align: center;
 		background: #C0392B;
@@ -139,6 +139,10 @@ const [send, receive] = crossfade({
 		width: 50%;
 		height: 70vh;
 		background-color: white;
+	}
+	
+	.left h2, .right h2{
+		height: 80px;
 	}
 	
 	.button-container{

@@ -104,6 +104,9 @@ var app = (function () {
     function children(element) {
         return Array.from(element.childNodes);
     }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, false, false, detail);
@@ -823,20 +826,20 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[7] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[7] = list[i];
     	return child_ctx;
     }
 
-    // (87:3) {#each initialOrder as person}
+    // (88:3) {#each initialOrder as person}
     function create_each_block_1(ctx) {
     	let p;
-    	let t0_value = /*person*/ ctx[5].name + "";
+    	let t0_value = /*person*/ ctx[7].name + "";
     	let t0;
     	let t1;
 
@@ -845,8 +848,8 @@ var app = (function () {
     			p = element("p");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(p, "class", "svelte-wzl7m5");
-    			add_location(p, file, 87, 4, 2260);
+    			attr_dev(p, "class", "svelte-19asl5g");
+    			add_location(p, file, 88, 4, 2416);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -863,17 +866,17 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(87:3) {#each initialOrder as person}",
+    		source: "(88:3) {#each initialOrder as person}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (98:3) {#each partners as person (person.id)}
+    // (99:3) {#each partners as person (person.id)}
     function create_each_block(key_1, ctx) {
     	let p;
-    	let t0_value = /*person*/ ctx[5].name + "";
+    	let t0_value = /*person*/ ctx[7].name + "";
     	let t0;
     	let t1;
     	let p_intro;
@@ -889,8 +892,8 @@ var app = (function () {
     			p = element("p");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(p, "class", "svelte-wzl7m5");
-    			add_location(p, file, 98, 4, 2443);
+    			attr_dev(p, "class", "svelte-19asl5g");
+    			add_location(p, file, 99, 4, 2629);
     			this.first = p;
     		},
     		m: function mount(target, anchor) {
@@ -900,7 +903,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if ((!current || dirty & /*partners*/ 1) && t0_value !== (t0_value = /*person*/ ctx[5].name + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*partners*/ 1) && t0_value !== (t0_value = /*person*/ ctx[7].name + "")) set_data_dev(t0, t0_value);
     		},
     		r: function measure() {
     			rect = p.getBoundingClientRect();
@@ -919,7 +922,7 @@ var app = (function () {
 
     			add_render_callback(() => {
     				if (p_outro) p_outro.end(1);
-    				if (!p_intro) p_intro = create_in_transition(p, /*receive*/ ctx[4], { key: /*person*/ ctx[5].id });
+    				if (!p_intro) p_intro = create_in_transition(p, /*receive*/ ctx[6], { key: /*person*/ ctx[7].id });
     				p_intro.start();
     			});
 
@@ -927,7 +930,7 @@ var app = (function () {
     		},
     		o: function outro(local) {
     			if (p_intro) p_intro.invalidate();
-    			p_outro = create_out_transition(p, /*send*/ ctx[3], { key: /*person*/ ctx[5].id });
+    			p_outro = create_out_transition(p, /*send*/ ctx[5], { key: /*person*/ ctx[7].id });
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -940,7 +943,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(98:3) {#each partners as person (person.id)}",
+    		source: "(99:3) {#each partners as person (person.id)}",
     		ctx
     	});
 
@@ -968,7 +971,7 @@ var app = (function () {
     	let each1_lookup = new Map();
     	let current;
     	let dispose;
-    	let each_value_1 = /*initialOrder*/ ctx[1];
+    	let each_value_1 = /*initialOrder*/ ctx[3];
     	let each_blocks_1 = [];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -976,7 +979,7 @@ var app = (function () {
     	}
 
     	let each_value = /*partners*/ ctx[0];
-    	const get_key = ctx => /*person*/ ctx[5].id;
+    	const get_key = ctx => /*person*/ ctx[7].id;
 
     	for (let i = 0; i < each_value.length; i += 1) {
     		let child_ctx = get_each_context(ctx, each_value, i);
@@ -1016,29 +1019,32 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(button, "class", "repeating-linear svelte-wzl7m5");
-    			add_location(button, file, 75, 4, 1990);
-    			attr_dev(span0, "class", "subtext svelte-wzl7m5");
-    			add_location(span0, file, 76, 4, 2067);
-    			attr_dev(div0, "class", "button-wrapper svelte-wzl7m5");
-    			add_location(div0, file, 74, 3, 1957);
-    			attr_dev(div1, "class", "button-container svelte-wzl7m5");
-    			add_location(div1, file, 73, 2, 1923);
-    			attr_dev(h20, "class", "svelte-wzl7m5");
-    			add_location(h20, file, 83, 3, 2192);
-    			attr_dev(div2, "class", "left svelte-wzl7m5");
-    			add_location(div2, file, 82, 2, 2170);
-    			attr_dev(h21, "class", "svelte-wzl7m5");
-    			add_location(h21, file, 93, 3, 2336);
+    			attr_dev(button, "class", "repeating-linear svelte-19asl5g");
+    			add_location(button, file, 76, 4, 2116);
+    			attr_dev(span0, "class", "subtext svelte-19asl5g");
+    			add_location(span0, file, 77, 4, 2193);
+    			attr_dev(div0, "class", "button-wrapper svelte-19asl5g");
+    			add_location(div0, file, 75, 3, 2083);
+    			attr_dev(div1, "class", "button-container svelte-19asl5g");
+    			add_location(div1, file, 74, 2, 2049);
+    			attr_dev(h20, "class", "svelte-19asl5g");
+    			add_location(h20, file, 84, 3, 2348);
+    			attr_dev(div2, "class", "left svelte-19asl5g");
+    			set_style(div2, "height", /*listHeight*/ ctx[1] + "px");
+    			add_location(div2, file, 83, 2, 2296);
+    			attr_dev(h21, "class", "svelte-19asl5g");
+    			add_location(h21, file, 94, 3, 2522);
     			attr_dev(span1, "class", "placeholder");
-    			add_location(span1, file, 96, 3, 2370);
-    			attr_dev(div3, "class", "right svelte-wzl7m5");
-    			add_location(div3, file, 92, 2, 2313);
-    			attr_dev(div4, "class", "board svelte-wzl7m5");
-    			add_location(div4, file, 72, 1, 1901);
-    			attr_dev(div5, "class", "background svelte-wzl7m5");
-    			add_location(div5, file, 71, 0, 1875);
-    			dispose = listen_dev(button, "click", /*handleClick*/ ctx[2], false, false, false);
+    			add_location(span1, file, 97, 3, 2556);
+    			attr_dev(div3, "class", "right svelte-19asl5g");
+    			set_style(div3, "height", /*listHeight*/ ctx[1] + "px");
+    			add_location(div3, file, 93, 2, 2469);
+    			attr_dev(div4, "class", "board svelte-19asl5g");
+    			add_location(div4, file, 73, 1, 2027);
+    			attr_dev(div5, "class", "background svelte-19asl5g");
+    			set_style(div5, "height", /*bgHeight*/ ctx[2]);
+    			add_location(div5, file, 72, 0, 1975);
+    			dispose = listen_dev(button, "click", /*handleClick*/ ctx[4], false, false, false);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1073,8 +1079,8 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*initialOrder*/ 2) {
-    				each_value_1 = /*initialOrder*/ ctx[1];
+    			if (dirty & /*initialOrder*/ 8) {
+    				each_value_1 = /*initialOrder*/ ctx[3];
     				let i;
 
     				for (i = 0; i < each_value_1.length; i += 1) {
@@ -1096,12 +1102,24 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
+    			if (!current || dirty & /*listHeight*/ 2) {
+    				set_style(div2, "height", /*listHeight*/ ctx[1] + "px");
+    			}
+
     			const each_value = /*partners*/ ctx[0];
     			group_outros();
     			for (let i = 0; i < each_blocks.length; i += 1) each_blocks[i].r();
     			each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each1_lookup, span1, fix_and_outro_and_destroy_block, create_each_block, null, get_each_context);
     			for (let i = 0; i < each_blocks.length; i += 1) each_blocks[i].a();
     			check_outros();
+
+    			if (!current || dirty & /*listHeight*/ 2) {
+    				set_style(div3, "height", /*listHeight*/ ctx[1] + "px");
+    			}
+
+    			if (!current || dirty & /*bgHeight*/ 4) {
+    				set_style(div5, "height", /*bgHeight*/ ctx[2]);
+    			}
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -1201,13 +1219,29 @@ var app = (function () {
     	};
 
     	$$self.$inject_state = $$props => {
-    		if ("initialOrder" in $$props) $$invalidate(1, initialOrder = $$props.initialOrder);
+    		if ("initialOrder" in $$props) $$invalidate(3, initialOrder = $$props.initialOrder);
     		if ("partners" in $$props) $$invalidate(0, partners = $$props.partners);
+    		if ("listHeight" in $$props) $$invalidate(1, listHeight = $$props.listHeight);
+    		if ("bgHeight" in $$props) $$invalidate(2, bgHeight = $$props.bgHeight);
     	};
 
     	let partners;
+    	let listHeight;
+    	let bgHeight;
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*listHeight*/ 2) {
+    			 $$invalidate(2, bgHeight = listHeight + 50);
+    		}
+
+    		if ($$self.$$.dirty & /*listHeight*/ 2) {
+    			 console.log(listHeight);
+    		}
+    	};
+
     	 $$invalidate(0, partners = []);
-    	return [partners, initialOrder, handleClick, send, receive];
+    	 $$invalidate(1, listHeight = initialOrder.length * 52);
+    	return [partners, listHeight, bgHeight, initialOrder, handleClick, send, receive];
     }
 
     class App extends SvelteComponentDev {
